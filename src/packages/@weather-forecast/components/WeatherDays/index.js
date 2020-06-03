@@ -9,7 +9,7 @@ const WeatherDays = props => {
     return (
         <Root>
             <Row justify={'center'}>
-                {(weatherDays || []).map(item => <Col key={item.id} xs={24} sm={24} md={6} lg={4}>
+                {(weatherDays || []).map(item => <Col key={item.id} xs={24} sm={12} md={6} lg={4}>
                     <WeatherDay data={item}/>
                 </Col>)}
             </Row>
