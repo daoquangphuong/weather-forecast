@@ -1,13 +1,13 @@
 import { SET_LOCATIONS, SET_WEATHER_DAYS, SET_LOADING } from '../constants';
 
 const defaultState = {
-    weatherDays: [
-        { id: 4963654879412224, day: "Wednesday", maxTemp: "23", minTemp: "15" },
-        { id: 4944825407242240, day: "Thursday", maxTemp: "19", minTemp: "13" },
-        { id: 6021746043912192, day: "Friday", maxTemp: "16", minTemp: "12" },
-        { id: 4729498362707968, day: "Saturday", maxTemp: "16", minTemp: "12" },
-        { id: 4570999372644352, day: "Sunday", maxTemp: "16", minTemp: "12" },
-    ]
+    // weatherDays: [
+    //     { id: 4963654879412224, day: "Wednesday", maxTemp: "23", minTemp: "15" },
+    //     { id: 4944825407242240, day: "Thursday", maxTemp: "19", minTemp: "13" },
+    //     { id: 6021746043912192, day: "Friday", maxTemp: "16", minTemp: "12" },
+    //     { id: 4729498362707968, day: "Saturday", maxTemp: "16", minTemp: "12" },
+    //     { id: 4570999372644352, day: "Sunday", maxTemp: "16", minTemp: "12" },
+    // ]
 };
 
 export default function (state = defaultState, action) {
