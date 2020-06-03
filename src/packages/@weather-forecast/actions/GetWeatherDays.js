@@ -24,9 +24,9 @@ export default function* GetWeatherDays(action) {
         const weatherDays = ((data && data.consolidated_weather) || []).map(item => ({
             id: item.id,
             day: dayjs(item.applicable_date, 'YYYY-MM-DD').format('dddd'),
-            maxTemp: (item.max_temp).toFixed(2),
-            minTemp: (item.min_temp).toFixed(2),
-        }))
+            maxTemp: (item.max_temp).toFixed(0),
+            minTemp: (item.min_temp).toFixed(0),
+        })).slice(0, 5)
 
         yield put(setWeatherDays(weatherDays));
     } catch (e) {

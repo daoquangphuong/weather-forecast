@@ -2,7 +2,7 @@ import React from 'react';
 import SearchForm from '../SearchForm';
 import WeatherDays from '../WeatherDays';
 import { Card } from 'antd';
-import { Root, Container, Header, Footer } from './styled';
+import { Root, Container, Content, Header, Footer } from './styled';
 import container from './container';
 
 const WeatherForecast = () => {
@@ -11,9 +11,11 @@ const WeatherForecast = () => {
             <Container>
                 <Header>Weather Forecast Application</Header>
                 <Card>
-                    <SearchForm/>
-                    <br/>
-                    <WeatherDays/>
+                    <Content>
+                        <SearchForm/>
+                        <br/>
+                        <WeatherDays/>
+                    </Content>
                 </Card>
                 <Footer>© 2020 - Dao Quang Phuong</Footer>
             </Container>

@@ -20,6 +20,20 @@ export const Container = styled.div`
   
   > *:nth-child(2) {
     height: 100%;
+    overflow: auto;
+    
+    > * {
+      display: flex;
+      height: 100%;
+    }
+  }
+`
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  > *:last-child {
+    height: 100%;
   }
 `
 

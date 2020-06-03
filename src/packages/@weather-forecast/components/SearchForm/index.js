@@ -26,7 +26,7 @@ const SearchForm = props => {
                 showSearch
                 allowClear
                 loading={weatherDaysLoading}
-                placeholder="Enter name of a location"
+                placeholder="Enter name of a location. Example: San Francisco"
                 notFoundContent={notFoundContent}
                 filterOption={false}
                 onSearch={handleSearch}
