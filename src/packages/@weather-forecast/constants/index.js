@@ -1,6 +1,7 @@
 const PREFIX = `WEATHER_FORECAST:`;
 export const GET_LOCATIONS = `${PREFIX}GET_LOCATIONS`;
 export const GET_WEATHER_DAYS = `${PREFIX}GET_WEATHER_DAYS`;
+export const SET_LOADING = `${PREFIX}SET_LOADING`;
 export const SET_LOCATIONS = `${PREFIX}SET_LOCATIONS`;
 export const SET_WEATHER_DAYS = `${PREFIX}SET_WEATHER_DAYS`;
 
@@ -10,6 +11,10 @@ export const getLocations = (query) => {
 
 export const getWeatherDays = (woeid) => {
     return { type: GET_WEATHER_DAYS, payload: woeid }
+};
+
+export const setLoading = (key, value) => {
+    return { type: SET_LOADING, payload: { key, value } }
 };
 
 export const setLocations = (locations) => {

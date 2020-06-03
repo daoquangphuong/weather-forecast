@@ -1,34 +1,42 @@
 import React from 'react';
-import { Input, AutoComplete } from 'antd';
+import { Select, Spin } from 'antd';
+import { Root } from './styled';
 import container from './container';
 
 const SearchForm = props => {
     const {
-        loading,
-        searchValue,
-        handleSearchValueChange,
+        locationsLoading,
+        weatherDaysLoading,
         locations,
         handleSearch,
         handleChange
+    } = props;
+
+    let notFoundContent = null;
+
+    if (locationsLoading) {
+        notFoundContent = <div style={{ textAlign: 'center' }}><Spin/></div>
+    } else if (locations && !locations.length) {
+        notFoundContent = `Not found (Please try with another name.)`
     }
-        = props;
 
     return (
-        <div>
-            <AutoComplete
-                options={(locations || []).map(item => ({
-                        label: item.title,
-                        value: `${item.woeid}`
-                    })
-                )}
-                autoFocus
+        <Root>
+            <Select
+                showSearch
+                allowClear
+                loading={weatherDaysLoading}
+                placeholder="Enter name of a location"
+                notFoundContent={notFoundContent}
+                filterOption={false}
+                onSearch={handleSearch}
                 onChange={handleChange}
-                onSelect={handleSearch}
-                backfill>
-                <Input.Search loading={loading} placeholder="input here" allowClear value={searchValue}
-                              onChange={handleSearchValueChange}/>
-            </AutoComplete>
-        </div>
+            >
+                {(locations || []).map(item => (
+                    <Select.Option key={item.id} value={item.id}>{item.title}</Select.Option>
+                ))}
+            </Select>
+        </Root>
     );
 };
 
