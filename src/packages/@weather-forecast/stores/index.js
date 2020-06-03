@@ -1,4 +1,5 @@
-import { createStore } from '@';
+import { createStore } from 'redux'
 
-export const $locations = createStore('weather-forecast:locations');
-export const $weatherDays = createStore('weather-forecast:weatherDays');
+const store = createStore(todoApp)
+
+export default store;

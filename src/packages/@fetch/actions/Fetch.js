@@ -1,8 +1,7 @@
-import { createAction } from '@';
 import { notification } from 'antd';
 import axios from 'axios';
 
-export default createAction('Fetch', async (...params) => {
+export default async (...params) => {
     try {
         const res = await axios(...params);
         return res;
@@ -13,4 +12,4 @@ export default createAction('Fetch', async (...params) => {
         });
         throw e;
     }
-});
+};

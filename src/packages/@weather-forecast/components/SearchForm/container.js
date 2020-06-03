@@ -1,12 +1,13 @@
-import { compose, hoc, useStore } from '@';
+import { useDispatch, useSelector } from "react-redux";
 import { useCallback, useMemo, useState } from "react";
-import GetLocation from '../../actions/GetLocation';
-import GetWeather from '../../actions/GetWeather';
-import { $locations } from '../../stores';
+import { compose, hoc } from '@';
+import { getLocations, getWeatherDays } from '../../constants';
+import { selectLocations } from "../../selectors";
 
 const container = compose(
     hoc(props => {
-        const [locations] = useStore([$locations]);
+        const locations = useSelector(selectLocations);
+        const dispatch = useDispatch();
 
         const [searchValue, setSearchValue] = useState();
 
@@ -25,14 +26,12 @@ const container = compose(
             if (window.__locationTimeout) {
                 clearTimeout(window.__locationTimeout);
             }
-            window.__locationTimeout = setTimeout(() => {
-                GetLocation(value).catch(console.error);
-            }, 100);
+            dispatch(getLocations(value));
         }, [])
 
         const handleSearch = useCallback((value) => {
-            GetWeather(value).catch(console.error);
-        }, [])
+            dispatch(getWeatherDays(value));
+        }, [dispatch])
 
         return {
             loading,

@@ -1,14 +1,16 @@
-import { createAction } from '@';
 import dayjs from 'dayjs';
 import { Fetch } from "../../@fetch";
-import { $weatherDays } from '../stores';
+import { call, put } from "redux-saga/effects";
+import { setWeatherDays } from "../constants";
 
-export default createAction('GetWeather', async (woeid) => {
-    const { data } = await Fetch({
+export default function* GetWeatherDays(action) {
+    const woeid = action.payload;
+
+    yield put(setWeatherDays(undefined));
+
+    const { data } = yield call(Fetch, {
         url: `/api/location/${woeid}/`,
     })
-
-    $weatherDays.setState(() => undefined);
 
     const weatherDays = ((data && data.consolidated_weather) || []).map(item => ({
         id: item.id,
@@ -17,5 +19,5 @@ export default createAction('GetWeather', async (woeid) => {
         minTemp: (item.min_temp).toFixed(2),
     }))
 
-    $weatherDays.setState(() => weatherDays);
-});
+    yield put(setWeatherDays(weatherDays));
+};
