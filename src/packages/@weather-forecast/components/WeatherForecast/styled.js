@@ -21,6 +21,9 @@ export const Container = styled.div`
   > *:nth-child(2) {
     height: 100%;
     overflow: auto;
+    background: rgba(0,0,0,0.2);
+    border: none;
+    border-radius: 10px;
     
     > * {
       display: flex;
