@@ -8,6 +8,10 @@ export default function* GetWeatherDays(action) {
     try {
         const woeid = action.payload;
 
+        if (!woeid) {
+            return;
+        }
+
         yield put(setWeatherDays(undefined));
         yield put(setLoading(GET_WEATHER_DAYS, true));
         yield put(setError(GET_WEATHER_DAYS, undefined));
