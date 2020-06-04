@@ -1,4 +1,4 @@
-import { Fetch } from '@fetch';
+import axios from 'axios';
 import { call, put } from 'redux-saga/effects';
 import { setLocations, setLoading, setError } from './index';
 import { GET_LOCATIONS } from '../constants';
@@ -15,7 +15,7 @@ export default function* GetLocations(action) {
             return;
         }
 
-        const { data } = yield call(Fetch, {
+        const { data } = yield call(axios, {
             url: `/api/location/search/`,
             params: { query }
         })

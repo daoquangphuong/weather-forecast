@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { Fetch } from "../../@fetch";
+import axios from 'axios';
 import { call, put } from "redux-saga/effects";
 import { setLoading, setWeatherDays, setError } from "./index";
 import { GET_WEATHER_DAYS } from "../constants";
@@ -12,7 +12,7 @@ export default function* GetWeatherDays(action) {
         yield put(setLoading(GET_WEATHER_DAYS, true));
         yield put(setError(GET_WEATHER_DAYS, undefined));
 
-        const { data } = yield call(Fetch, {
+        const { data } = yield call(axios, {
             url: `/api/location/${woeid}/`,
         })
 
