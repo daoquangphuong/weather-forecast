@@ -10,7 +10,7 @@ const WeatherDays = props => {
 
     let contentBlock;
 
-    if (!weatherDaysLoading) {
+    if (weatherDaysLoading) {
         contentBlock = (
             <Col>
                 <br/>
