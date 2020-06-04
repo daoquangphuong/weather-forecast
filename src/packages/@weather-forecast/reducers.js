@@ -1,4 +1,4 @@
-import { SET_LOCATIONS, SET_WEATHER_DAYS, SET_LOADING, SET_ERROR } from '../constants';
+import { SET_LOCATIONS, SET_WEATHER_DAYS, SET_LOADING, SET_ERROR } from './constants';
 
 const defaultState = {
     // weatherDays: [

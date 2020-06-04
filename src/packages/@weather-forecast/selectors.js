@@ -1,5 +1,5 @@
 import { createSelector as createSelectorOrigin } from 'reselect'
-import { GET_LOCATIONS, GET_WEATHER_DAYS } from '../constants';
+import { GET_LOCATIONS, GET_WEATHER_DAYS } from './constants';
 
 const createSelector = (select) => createSelectorOrigin(
     state => state.weatherForecast,

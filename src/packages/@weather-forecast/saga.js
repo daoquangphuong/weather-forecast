@@ -1,8 +1,8 @@
 import {takeLatest, all} from 'redux-saga/effects';
-import {GET_LOCATIONS, GET_WEATHER_DAYS} from '../constants';
+import {GET_LOCATIONS, GET_WEATHER_DAYS} from './constants';
 
-import GetLocations from '../actions/GetLocations';
-import GetWeatherDays from '../actions/GetWeatherDays';
+import GetLocations from './actions/GetLocations';
+import GetWeatherDays from './actions/GetWeatherDays';
 
 export default function* rootSaga() {
     yield all([
