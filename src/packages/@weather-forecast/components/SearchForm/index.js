@@ -17,7 +17,7 @@ const SearchForm = props => {
     if (locationsLoading) {
         notFoundContent = <div style={{ textAlign: 'center' }}><Spin/></div>
     } else if (locations && !locations.length) {
-        notFoundContent = `Not found (Please try with another name.)`
+        notFoundContent = `Not found. (Please try with another name)`
     }
 
     return (

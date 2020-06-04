@@ -1,7 +1,8 @@
 import { notification } from "antd";
 import { Fetch } from '@fetch';
 import { call, put } from 'redux-saga/effects';
-import { setLocations, setLoading, GET_LOCATIONS } from '../constants';
+import { setLocations, setLoading } from './index';
+import { GET_LOCATIONS } from '../constants';
 
 export default function* GetLocations(action) {
     try {

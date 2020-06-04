@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback } from "react";
 import { compose, hoc } from '@';
-import { getLocations, getWeatherDays } from '../../constants';
+import { getLocations, getWeatherDays } from '../../actions';
 import { selectLocations, selectLocationsLoading, selectWeatherDaysLoading } from "../../selectors";
 
 const container = compose(
@@ -16,7 +16,7 @@ const container = compose(
                 clearTimeout(window.__locationTimeout);
             }
             dispatch(getLocations(value));
-        }, [])
+        }, [dispatch])
 
         const handleChange = useCallback((value) => {
             dispatch(getWeatherDays(value));

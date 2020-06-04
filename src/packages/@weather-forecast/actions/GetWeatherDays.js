@@ -2,7 +2,8 @@ import dayjs from 'dayjs';
 import { notification } from "antd";
 import { Fetch } from "../../@fetch";
 import { call, put } from "redux-saga/effects";
-import { setLoading, setWeatherDays, GET_WEATHER_DAYS } from "../constants";
+import { setLoading, setWeatherDays } from "./index";
+import { GET_WEATHER_DAYS } from "../constants";
 
 export default function* GetWeatherDays(action) {
     try {
