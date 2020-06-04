@@ -31,7 +31,6 @@ export default function* GetLocations(action) {
         yield put(setLocations(locations));
 
     } catch (e) {
-        console.error(e);
         yield put(setError(GET_LOCATIONS, e.message));
     } finally {
         yield put(setLoading(GET_LOCATIONS, false));

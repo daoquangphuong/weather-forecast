@@ -29,7 +29,6 @@ export default function* GetWeatherDays(action) {
 
         yield put(setWeatherDays(weatherDays));
     } catch (e) {
-        console.error(e);
         yield put(setError(GET_WEATHER_DAYS, e.message));
     } finally {
         yield put(setLoading(GET_WEATHER_DAYS, false));
