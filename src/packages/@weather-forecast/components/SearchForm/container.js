@@ -5,7 +5,6 @@ import { getLocations, getWeatherDays } from '../../actions';
 import {
     selectLocations, selectLocationsError,
     selectLocationsLoading,
-    selectWeatherDaysError,
     selectWeatherDaysLoading
 } from "../../selectors";
 
