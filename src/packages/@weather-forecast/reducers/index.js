@@ -1,4 +1,4 @@
-import { SET_LOCATIONS, SET_WEATHER_DAYS, SET_LOADING } from '../constants';
+import { SET_LOCATIONS, SET_WEATHER_DAYS, SET_LOADING, SET_ERROR } from '../constants';
 
 const defaultState = {
     // weatherDays: [
@@ -27,6 +27,14 @@ export default function (state = defaultState, action) {
                 ...state,
                 loading: {
                     ...state.loading,
+                    [action.payload.key]: action.payload.value
+                }
+            }
+        case SET_ERROR:
+            return {
+                ...state,
+                error: {
+                    ...state.error,
                     [action.payload.key]: action.payload.value
                 }
             }

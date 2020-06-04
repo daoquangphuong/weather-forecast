@@ -2,12 +2,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { useCallback } from "react";
 import { compose, hoc } from '@';
 import { getLocations, getWeatherDays } from '../../actions';
-import { selectLocations, selectLocationsLoading, selectWeatherDaysLoading } from "../../selectors";
+import {
+    selectLocations, selectLocationsError,
+    selectLocationsLoading,
+    selectWeatherDaysError,
+    selectWeatherDaysLoading
+} from "../../selectors";
 
 const container = compose(
     hoc(props => {
         const locations = useSelector(selectLocations);
         const locationsLoading = useSelector(selectLocationsLoading);
+        const locationsError = useSelector(selectLocationsError);
         const weatherDaysLoading = useSelector(selectWeatherDaysLoading);
         const dispatch = useDispatch();
 
@@ -23,6 +29,7 @@ const container = compose(
         }, [dispatch])
 
         return {
+            locationsError,
             locationsLoading,
             weatherDaysLoading,
             locations,

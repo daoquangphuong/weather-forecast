@@ -2,6 +2,7 @@ import {
     GET_LOCATIONS,
     GET_WEATHER_DAYS,
     SET_LOADING,
+    SET_ERROR,
     SET_LOCATIONS,
     SET_WEATHER_DAYS
 } from "../constants";
@@ -16,6 +17,10 @@ export const getWeatherDays = (woeid) => {
 
 export const setLoading = (key, value) => {
     return { type: SET_LOADING, payload: { key, value } }
+};
+
+export const setError = (key, value) => {
+    return { type: SET_ERROR, payload: { key, value } }
 };
 
 export const setLocations = (locations) => {

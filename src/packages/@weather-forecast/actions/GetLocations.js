@@ -1,7 +1,6 @@
-import { notification } from "antd";
 import { Fetch } from '@fetch';
 import { call, put } from 'redux-saga/effects';
-import { setLocations, setLoading } from './index';
+import { setLocations, setLoading, setError } from './index';
 import { GET_LOCATIONS } from '../constants';
 
 export default function* GetLocations(action) {
@@ -10,21 +9,16 @@ export default function* GetLocations(action) {
 
         yield put(setLocations(undefined));
         yield put(setLoading(GET_LOCATIONS, true));
+        yield put(setError(GET_LOCATIONS, undefined));
 
         if (!query) {
             return;
         }
 
-        let data;
-        try {
-            const res = yield call(Fetch, {
-                url: `/api/location/search/`,
-                params: { query }
-            })
-            data = res.data;
-        } catch (e) {
-            data = [];
-        }
+        const { data } = yield call(Fetch, {
+            url: `/api/location/search/`,
+            params: { query }
+        })
 
         // {title: "San Francisco", location_type: "City", woeid: 2487956, latt_long: "37.777119, -122.41964"}
         const locations = data.map(item => ({
@@ -37,11 +31,8 @@ export default function* GetLocations(action) {
         yield put(setLocations(locations));
 
     } catch (e) {
-        notification.error({
-            message: 'Fetch Error',
-            description: e.message,
-        });
-        throw e;
+        console.error(e);
+        yield put(setError(GET_LOCATIONS, e.message));
     } finally {
         yield put(setLoading(GET_LOCATIONS, false));
     }

@@ -1,10 +1,11 @@
 import React from 'react';
-import { Select, Spin } from 'antd';
+import { Select, Spin, Typography } from 'antd';
 import { Root } from './styled';
 import container from './container';
 
 const SearchForm = props => {
     const {
+        locationsError,
         locationsLoading,
         weatherDaysLoading,
         locations,
@@ -18,6 +19,8 @@ const SearchForm = props => {
         notFoundContent = <div style={{ textAlign: 'center' }}><Spin/></div>
     } else if (locations && !locations.length) {
         notFoundContent = `Not found. (Please try with another name)`
+    } else if (locationsError) {
+        notFoundContent = <Typography.Text type={'danger'}>Error: {locationsError}</Typography.Text>;
     }
 
     return (

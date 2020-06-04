@@ -1,8 +1,7 @@
 import dayjs from 'dayjs';
-import { notification } from "antd";
 import { Fetch } from "../../@fetch";
 import { call, put } from "redux-saga/effects";
-import { setLoading, setWeatherDays } from "./index";
+import { setLoading, setWeatherDays, setError } from "./index";
 import { GET_WEATHER_DAYS } from "../constants";
 
 export default function* GetWeatherDays(action) {
@@ -11,16 +10,11 @@ export default function* GetWeatherDays(action) {
 
         yield put(setWeatherDays(undefined));
         yield put(setLoading(GET_WEATHER_DAYS, true));
+        yield put(setError(GET_WEATHER_DAYS, undefined));
 
-        let data;
-        try {
-            const res = yield call(Fetch, {
-                url: `/api/location/${woeid}/`,
-            })
-            data = res.data;
-        } catch (e) {
-            data = {};
-        }
+        const { data } = yield call(Fetch, {
+            url: `/api/location/${woeid}/`,
+        })
 
         const weatherDays = ((data && data.consolidated_weather) || []).map(item => ({
             id: item.id,
@@ -31,11 +25,8 @@ export default function* GetWeatherDays(action) {
 
         yield put(setWeatherDays(weatherDays));
     } catch (e) {
-        notification.error({
-            message: 'Fetch Error',
-            description: e.message,
-        });
-        throw e;
+        console.error(e);
+        yield put(setError(GET_WEATHER_DAYS, e.message));
     } finally {
         yield put(setLoading(GET_WEATHER_DAYS, false));
     }
