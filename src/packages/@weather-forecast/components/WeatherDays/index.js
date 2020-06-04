@@ -1,5 +1,6 @@
 import React from 'react';
 import { Spin, Typography, Row, Col } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
 import WeatherDay from '../WeatherDay';
 import { Root } from './styled';
 import container from './container';
@@ -9,12 +10,11 @@ const WeatherDays = props => {
 
     let contentBlock;
 
-    if (weatherDaysLoading) {
+    if (!weatherDaysLoading) {
         contentBlock = (
             <Col>
                 <br/>
-                <br/>
-                <Spin size={'large'}/>
+                <Spin indicator={<LoadingOutlined style={{ fontSize: 80, color: '#002958' }} spin/>}/>
             </Col>
         )
     } else if (weatherDaysError) {
