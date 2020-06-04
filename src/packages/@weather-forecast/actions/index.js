@@ -1,4 +1,5 @@
 import {
+    RESET,
     GET_LOCATIONS,
     GET_WEATHER_DAYS,
     SET_LOADING,
@@ -6,6 +7,10 @@ import {
     SET_LOCATIONS,
     SET_WEATHER_DAYS
 } from "../constants";
+
+export const reset = () => {
+    return { type: RESET }
+};
 
 export const getLocations = (query) => {
     return { type: GET_LOCATIONS, payload: query }

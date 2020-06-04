@@ -3,8 +3,9 @@ import { call, put } from 'redux-saga/effects';
 import GetLocations from './GetLocations';
 import { setLocations, setLoading, setError } from './index';
 import { GET_LOCATIONS } from '../constants';
+import { locationsResp, locations } from '../mock';
 
-describe('call action GetLocations', () => {
+describe('calls action GetLocations', () => {
     let gen
 
     const testBeforeFetch = () => {
@@ -49,22 +50,8 @@ describe('call action GetLocations', () => {
             url: `/api/location/search/`,
             params: { query }
         }));
-        const resp = {
-            data: [{
-                title: "San Francisco",
-                location_type: "City",
-                woeid: 2487956,
-                latt_long: "37.777119, -122.41964"
-            }]
-        }
 
-        const locations = [{
-            id: 2487956,
-            title: 'San Francisco',
-            type: 'City',
-            lattLong: '37.777119, -122.41964'
-        }];
-        expect(gen.next(resp).value).toEqual(put(setLocations(locations)));
+        expect(gen.next(locationsResp).value).toEqual(put(setLocations(locations)));
         testFinal();
         testReturn();
     })

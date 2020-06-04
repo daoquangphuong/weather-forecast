@@ -1,6 +1,16 @@
-import { SET_LOCATIONS, SET_WEATHER_DAYS, SET_LOADING, SET_ERROR } from './constants';
+import {
+    RESET,
+    SET_LOCATIONS,
+    SET_WEATHER_DAYS,
+    SET_LOADING,
+    SET_ERROR
+} from './constants';
 
 const defaultState = {
+    // locations: [{
+    //     id: 2487956,
+    //     title: 'San Francisco'
+    // }],
     // weatherDays: [
     //     { id: 4963654879412224, day: "Wednesday", maxTemp: "23", minTemp: "15" },
     //     { id: 4944825407242240, day: "Thursday", maxTemp: "19", minTemp: "13" },
@@ -12,6 +22,8 @@ const defaultState = {
 
 export default function (state = defaultState, action) {
     switch (action.type) {
+        case RESET:
+            return defaultState;
         case SET_LOCATIONS:
             return {
                 ...state,

@@ -17,9 +17,6 @@ const container = compose(
         const dispatch = useDispatch();
 
         const handleSearch = useCallback((value) => {
-            if (window.__locationTimeout) {
-                clearTimeout(window.__locationTimeout);
-            }
             dispatch(getLocations(value));
         }, [dispatch])
 

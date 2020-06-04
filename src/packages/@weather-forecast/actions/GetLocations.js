@@ -23,9 +23,7 @@ export default function* GetLocations(action) {
         // {title: "San Francisco", location_type: "City", woeid: 2487956, latt_long: "37.777119, -122.41964"}
         const locations = data.map(item => ({
             id: item.woeid,
-            title: item.title,
-            type: item.location_type,
-            lattLong: item.latt_long,
+            title: item.title
         }))
 
         yield put(setLocations(locations));

@@ -1,4 +1,5 @@
 const PREFIX = `WEATHER_FORECAST:`;
+export const RESET = `${PREFIX}RESET`;
 export const GET_LOCATIONS = `${PREFIX}GET_LOCATIONS`;
 export const GET_WEATHER_DAYS = `${PREFIX}GET_WEATHER_DAYS`;
 export const SET_LOADING = `${PREFIX}SET_LOADING`;
