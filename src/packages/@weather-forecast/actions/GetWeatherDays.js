@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import axios from 'axios';
 import { call, put } from 'redux-saga/effects';
+import config from '@config';
 import { setLoading, setWeatherDays, setError } from './index';
 import { GET_WEATHER_DAYS } from '../constants';
 
@@ -17,7 +18,7 @@ export default function* GetWeatherDays(action) {
     }
 
     const { data } = yield call(axios, {
-      url: `/api/location/${woeid}/`,
+      url: `${config.API_ENDPOINT}/api/location/${woeid}/`,
     });
 
     const weatherDays = ((data && data.consolidated_weather) || [])

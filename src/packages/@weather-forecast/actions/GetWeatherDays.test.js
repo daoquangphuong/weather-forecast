@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { call, put } from 'redux-saga/effects';
+import config from '@config';
 import GetWeatherDays from './GetWeatherDays';
 import { setWeatherDays, setLoading, setError } from './index';
 import { GET_WEATHER_DAYS } from '../constants';
@@ -35,7 +36,7 @@ describe('calls action GetWeatherDays', () => {
     gen = GetWeatherDays({ type: GET_WEATHER_DAYS, payload: woeid });
     testBeforeFetch();
     expect(gen.next().value).toEqual(
-      call(axios, { url: `/api/location/${woeid}/` })
+      call(axios, { url: `${config.API_ENDPOINT}/api/location/${woeid}/` })
     );
     const e = new Error('Network Error');
     expect(gen.throw(e).value).toEqual(
