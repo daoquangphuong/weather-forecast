@@ -1,4 +1,32 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Weather Focecast Application
+
+A React web app which can display a five day weather forecast based upon publicly available data.
+
+This project uses:
+  - [Create React App](https://github.com/facebook/create-react-app)
+  - [Ant Design](https://ant.design/)
+  - [Redux](https://redux.js.org/)
+  - [Redux-saga](https://redux-saga.js.org/)
+  - [Meta Weather API](https://www.metaweather.com/api/)
+    - [Location Search API](https://www.metaweather.com/api/#locationsearch) : Find a location
+    - [Location API](https://www.metaweather.com/api/#location) : Location information, and a 5 day forecast
+
+## Enviroment Config
+
+[.env](https://github.com/daoquangphuong/weather-forecast/blob/master/.env)
+```env
+NODE_PATH=src/packages
+HOST=localhost
+PORT=8888
+REACT_APP_API_ENDPOINT=""
+DANGEROUSLY_DISABLE_HOST_CHECK=true
+SKIP_PREFLIGHT_CHECK=true
+GENERATE_SOURCEMAP=false
+```
+
+### **Note**
+  - You should **NOT** change `NODE_PATH=src/packages`
+  - [Meta Weather API](https://www.metaweather.com/api/) doesn't allow **Cross Domain - CORS**. Therefore for **Development** i set proxy in (package.json)[https://github.com/daoquangphuong/weather-forecast/blob/master/package.json#L5] .For deploying to **Production** make sure the apis are run through your server (**Api-Endpoint**). For setting **Api-Endpoint** please config **REACT_APP_API_ENDPOINT** ex: `REACT_APP_API_ENDPOINT="https://www.your-api-server.com` 
 
 ## Available Scripts
 
@@ -7,7 +35,7 @@ In the project directory, you can run:
 ### `yarn start`
 
 Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:8888](http://localhost:8888) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
@@ -16,6 +44,11 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `yarn coverage`
+
+Launches the Code Coverage.
+The report is in `coverage` folder.
 
 ### `yarn build`
 
