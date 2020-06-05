@@ -26,7 +26,7 @@ GENERATE_SOURCEMAP=false
 
 ### **Note**
   - You should **NOT** change `NODE_PATH=src/packages`
-  - [Meta Weather API](https://www.metaweather.com/api/) doesn't allow **Cross Domain - CORS**. Therefore for **Development** i set proxy in (package.json)[https://github.com/daoquangphuong/weather-forecast/blob/master/package.json#L5] .For deploying to **Production** make sure the apis are run through your server (**Api-Endpoint**). For setting **Api-Endpoint** please config **REACT_APP_API_ENDPOINT** ex: `REACT_APP_API_ENDPOINT="https://www.your-api-server.com` 
+  - [Meta Weather API](https://www.metaweather.com/api/) doesn't allow **Cross Domain - CORS**. Therefore for **Development** i set proxy in [package.json](https://github.com/daoquangphuong/weather-forecast/blob/master/package.json#L5) .For deploying to **Production** make sure the apis are run through your server (**Api-Endpoint**). For setting **Api-Endpoint** please config **REACT_APP_API_ENDPOINT** ex: `REACT_APP_API_ENDPOINT="https://www.your-api-server.com` 
 
 ## Available Scripts
 
