@@ -1,8 +1,10 @@
 # Weather Focecast Application
 
-A React web app which can display a five day weather forecast based upon publicly available data.
+### A React web app which can display a five day weather forecast based upon publicly available data.
 
-This project uses:
+[**DEMO on CodeSandbox**](https://codesandbox.io/s/github/daoquangphuong/weather-forecast)
+
+**This project uses:**
   - [Create React App](https://github.com/facebook/create-react-app)
   - [Ant Design](https://ant.design/)
   - [Redux](https://redux.js.org/)
